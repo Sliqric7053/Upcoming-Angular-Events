@@ -1,0 +1,15 @@
+<div>
+  <app-nav></app-nav>
+  <h1>Upcoming Angular Events</h1>
+  <hr />
+  <div class="row">
+    <div class="col-md-5" *ngFor="let event of events">
+      <app-event-thumbnail
+        [event]="event"
+        #thumbnailVar
+        (click)="handleToasterEvent(event.name)"
+      ></app-event-thumbnail>
+    </div>
+  </div>
+  <!-- <h3>{{ thumbnailVar.text }}</h3> -->
+</div>
