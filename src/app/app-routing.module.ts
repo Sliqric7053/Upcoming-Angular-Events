@@ -25,6 +25,7 @@ const routes: Routes = [
   },
   { path: '404', component: ErrorsComponent },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
+  { path: 'user', loadChildren: './user/profile.module#UserProfileModule' },
 ];
 
 @NgModule({
