@@ -36,7 +36,7 @@ import { EventRouteActivatorGuard } from './events/event-route-activator.guard';
 export class AppModule {}
 
 export function checkDirtyState(component: CreateEventComponent) {
-  if (component.isDirty) {
+  if (!component.isDirty) {
     return window.confirm(
       'You have not saved event, sure you want to navigate away?'
     );
