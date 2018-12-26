@@ -11,6 +11,7 @@ import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
+import { ErrorsComponent } from './errors/errors.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
     EventsListComponent,
     EventDetailsComponent,
     CreateEventComponent,
+    ErrorsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [EventService, ToastrService],
