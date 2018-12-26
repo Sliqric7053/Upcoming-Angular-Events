@@ -11,9 +11,9 @@ export class EventService {
       price: 599.99,
       imageUrl: '/assets/images/angularconnect-shield.png',
       location: {
-        // address: '1057 DT',
-        // city: 'London',
-        // country: 'England'
+        address: '1057 DT',
+        city: 'London',
+        country: 'England',
       },
       sessions: [
         {
@@ -86,7 +86,7 @@ export class EventService {
       name: 'ng-nl',
       date: '4/15/2037',
       time: '9:00 am',
-      // price: 950.0,
+      price: 950.0,
       imageUrl: '/assets/images/ng-nl.png',
       location: {
         address: 'The NG-NL Convention Center & Scuba Shop',
@@ -317,5 +317,9 @@ export class EventService {
 
   getEvents() {
     return this.EVENTS;
+  }
+
+  getEvent(id: number) {
+    return this.EVENTS.find(event => event.id === id);
   }
 }
