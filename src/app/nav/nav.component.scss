@@ -1,14 +1,18 @@
 .nav.navbar-nav {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 #searchForm {
-    margin-right: 100px;
+  margin-right: 100px;
+}
+
+li > a.active {
+  color: #f97924;
 }
 
 // hide search form when window is too small
 @media (max-width: 1200px) {
-    #searchForm {
-        display: none;
-    }
+  #searchForm {
+    display: none;
+  }
 }
