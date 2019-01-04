@@ -39,7 +39,7 @@
               [routerLink]="['/user/profile']"
               *ngIf="auth.isAuthenticated()"
               routerLinkActive="active"
-              >Welcome John</a
+              >Welcome {{ auth.currentUser.firstName || 'User' }}</a
             >
           </li>
         </ul>
