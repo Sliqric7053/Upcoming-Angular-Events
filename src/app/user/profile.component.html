@@ -8,7 +8,12 @@
       autocomplete="off"
       novalidate
     >
-      <div class="form-group">
+      <div
+        [ngClass]="{
+          error: !validateFirstName()
+        }"
+        class="form-group"
+      >
         <label for="firstName">First Name:</label>
         <input
           formControlName="firstName"
@@ -17,8 +22,27 @@
           class="form-control"
           placeholder="First Name..."
         />
+        <em
+          *ngIf="
+            !validateFirstName() &&
+            profileForm.controls.firstName?.errors.required
+          "
+          >Please enter Username</em
+        >
+        <em
+          *ngIf="
+            !validateFirstName() &&
+            profileForm.controls.firstName?.errors.pattern
+          "
+          >Must start with a letter</em
+        >
       </div>
-      <div class="form-group">
+      <div
+        [ngClass]="{
+          error: !validateLastName()
+        }"
+        class="form-group"
+      >
         <label for="lastName">Last Name:</label>
         <input
           formControlName="lastName"
@@ -27,6 +51,7 @@
           class="form-control"
           placeholder="Last Name..."
         />
+        <em *ngIf="!validateLastName()">Please enter Lastname</em>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
       <button (click)="cancel()" type="button" class="btn btn-default">
