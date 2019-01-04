@@ -18,6 +18,13 @@
         placeholder="User Name..."
         (ngModel)="(userName)"
       />
+      <em
+        *ngIf="
+          loginForm.controls.userName?.invalid &&
+          (loginForm.controls.userName?.touched || mouseoverLogin)
+        "
+        >Please enter Username</em
+      >
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
@@ -30,9 +37,26 @@
         placeholder="Password..."
         (ngModel)="(password)"
       />
+      <em
+        *ngIf="
+          loginForm.controls.password?.invalid &&
+          (loginForm.controls.password?.touched || mouseoverLogin)
+        "
+        >Please enter Password</em
+      >
     </div>
-
-    <button type="submit" class="btn btn-primary">Login</button>
+    <span
+      (mouseenter)="mouseoverLogin = true"
+      (mouseleave)="mouseoverLogin = false"
+    >
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Login
+      </button>
+    </span>
     <button (click)="cancel()" type="button" class="btn btn-default">
       Cancel
     </button>
