@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,18 @@ export class LoginComponent implements OnInit {
   userName;
   password;
 
-  constructor() {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
   login(formData) {
-    console.log('fprdata', formData);
+    this.auth.loginUser(formData.userName, formData.password);
+    // tslint:disable-next-line:no-unused-expression
+    this.router.navigate(['events']);
+  }
+
+  cancel() {
+    // tslint:disable-next-line:no-unused-expression
+    this.router.navigate(['/events']);
   }
 }

@@ -2,6 +2,7 @@
 <hr />
 <div class="col-md-4">
   <form
+    novalidate
     autocomplete="off"
     #loginForm="ngForm"
     (ngSubmit)="login(loginForm.value)"
@@ -9,6 +10,7 @@
     <div class="form-group">
       <label for="userName">User Name:</label>
       <input
+        required
         name="userName"
         id="userName"
         type="text"
@@ -20,6 +22,7 @@
     <div class="form-group">
       <label for="password">Password:</label>
       <input
+        required
         name="password"
         id="password"
         type="password"
@@ -30,6 +33,8 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
-    <button type="button" class="btn btn-default">Cancel</button>
+    <button (click)="cancel()" type="button" class="btn btn-default">
+      Cancel
+    </button>
   </form>
 </div>
