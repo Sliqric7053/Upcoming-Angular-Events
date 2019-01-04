@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ToastrService } from './common/toastr.service';
 import { ErrorsComponent } from './errors/errors.component';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ErrorsComponent } from './errors/errors.component';
     EventRouteActivatorGuard,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventsListResolverService,
+    AuthService,
   ],
   bootstrap: [AppComponent],
 })
