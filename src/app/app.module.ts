@@ -17,6 +17,8 @@ import { NavComponent } from './nav/nav.component';
 import { ToastrService } from './common/toastr.service';
 import { ErrorsComponent } from './errors/errors.component';
 import { AuthService } from './user/auth.service';
+import { FormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,9 @@ import { AuthService } from './user/auth.service';
     EventDetailsComponent,
     CreateEventComponent,
     ErrorsComponent,
+    CreateSessionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
     EventService,
     ToastrService,
