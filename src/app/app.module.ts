@@ -17,7 +17,7 @@ import { NavComponent } from './nav/nav.component';
 import { ToastrService } from './common/toastr.service';
 import { ErrorsComponent } from './errors/errors.component';
 import { AuthService } from './user/auth.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/create-session/create-session.component';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { CreateSessionComponent } from './events/create-session/create-session.c
     ErrorsComponent,
     CreateSessionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     EventService,
     ToastrService,
