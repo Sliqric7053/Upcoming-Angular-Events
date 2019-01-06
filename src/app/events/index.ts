@@ -3,6 +3,7 @@ export * from './event-details/event-details.component';
 export * from './event-thumbnail/event-thumbnail.component';
 export * from './events-list/events-list.component';
 export * from './create-session/create-session.component';
+export * from './session-list/session-list.component';
 
 export * from './shared/event.service';
 export * from './events-list-resolver.service';
