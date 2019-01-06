@@ -1,6 +1,10 @@
 <div class="col-md-12"><h3>Create Session</h3></div>
 <div class="col-md-6">
-  <form autocomplete="off">
+  <form
+    [formGroup]="newSessionForm"
+    (ngSubmit)="saveSession(newSessionForm.value)"
+    autocomplete="off"
+  >
     <div class="form-group">
       <label for="sessionName">Session Name:</label>
       <input
@@ -8,7 +12,9 @@
         type="text"
         class="form-control"
         placeholder="session name..."
+        formControlName="name"
       />
+      <em *ngIf="name?.invalid && name?.dirty">Please enter session name</em>
     </div>
     <div class="form-group">
       <label for="eventDate">Presenter:</label>
@@ -17,27 +23,35 @@
         type="text"
         class="form-control"
         placeholder="presenter..."
+        formControlName="presenter"
       />
+      <em *ngIf="presenter?.invalid && presenter?.dirty"
+        >Please enter presenter name</em
+      >
     </div>
     <div class="form-group">
       <label for="duration">Duration:</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="duration">
         <option value="">select duration...</option>
         <option value="1">Half Hour</option>
         <option value="2">1 Hour</option>
         <option value="3">Half Day</option>
         <option value="4">Full Day</option>
       </select>
+      <em *ngIf="duration?.invalid && duration?.dirty"
+        >Please select duration</em
+      >
     </div>
     <div class="form-group">
       <label for="level">Level:</label>
-      <select class="form-control">
+      <select class="form-control" formControlName="level">
         <option value="">select level...</option>
         <option value="Beginner">Beginner</option>
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
       </select>
     </div>
+    <em *ngIf="level?.invalid && level?.dirty">Please select level</em>
     <div class="form-group">
       <label for="abstract">Abstract:</label>
       <textarea
@@ -45,9 +59,38 @@
         rows="3"
         class="form-control"
         placeholder="abstract..."
+        formControlName="abstract"
       ></textarea>
+      <em
+        *ngIf="
+          abstract?.invalid && abstract?.dirty && abstract?.errors.required
+        "
+        >Please fill in the field</em
+      >
+      <em
+        *ngIf="
+          abstract?.invalid && abstract?.dirty && abstract?.errors.maxLength
+        "
+        >Cannot exceed 400 characters</em
+      >
+      <em
+        *ngIf="
+          abstract?.invalid &&
+          abstract?.dirty &&
+          abstract?.errors.restrictedWords
+        "
+        >Cannot contain a restricted word "{{
+          abstract?.errors.restrictedWords
+        }}"</em
+      >
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button
+      [disabled]="newSessionForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Save
+    </button>
     <button type="button" class="btn btn-default">Cancel</button>
   </form>
 </div>
