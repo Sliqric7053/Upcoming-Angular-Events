@@ -18,6 +18,7 @@ export class CreateSessionComponent implements OnInit {
   abstract: FormControl;
 
   @Output() saveNewSession = new EventEmitter();
+  @Output() cancelAddSession = new EventEmitter();
 
   constructor() {}
 
@@ -52,6 +53,9 @@ export class CreateSessionComponent implements OnInit {
       voters: [],
     };
     this.saveNewSession.emit(session);
-    // this.editMode = false;
+  }
+
+  cancel() {
+    this.cancelAddSession.emit();
   }
 }
