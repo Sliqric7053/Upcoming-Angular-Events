@@ -27,6 +27,7 @@ export class EventDetailsComponent implements OnInit {
       );
       // make sure you maintain app state
       // @TODO: create method e.g. resetState() to reset app state
+
       this.addMode = false;
     });
   }
