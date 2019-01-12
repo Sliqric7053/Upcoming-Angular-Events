@@ -16,12 +16,18 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { ToastrService } from './common/toastr.service';
 import { ErrorsComponent } from './errors/errors.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
+import {
+  ToastrService,
+  CollapsibleWellComponent,
+  JQ_TOKEN,
+  SimpleModalComponent,
+} from './common/index';
 import { DurationPipe } from './events/shared/duration.pipe';
+
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -36,6 +42,7 @@ import { DurationPipe } from './events/shared/duration.pipe';
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
@@ -43,6 +50,7 @@ import { DurationPipe } from './events/shared/duration.pipe';
     ToastrService,
     EventRouteActivatorGuard,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+    { provide: JQ_TOKEN, useValue: jQuery },
     EventsListResolverService,
     AuthService,
   ],
