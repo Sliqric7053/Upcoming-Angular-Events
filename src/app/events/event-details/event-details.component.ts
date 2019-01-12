@@ -12,6 +12,7 @@ export class EventDetailsComponent implements OnInit {
   event: IEvent;
   addMode = false;
   filterBy = 'all';
+  sortBy = 'votes';
 
   constructor(
     private eventService: EventService,
