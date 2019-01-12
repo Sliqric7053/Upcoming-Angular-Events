@@ -20,14 +20,21 @@ export class EventDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+<<<<<<< HEAD
     // subscribe to component param changes and react accordingly
+=======
+    // subscribe to params changes and react accordingly
+>>>>>>> bb22c3dc4cbf11da5c931e622059aeb708dd540c
     this.route.params.forEach((param: Params) => {
       this.event = this.eventService.getEvent(
         +this.route.snapshot.params['id']
       );
       // make sure you maintain app state
+<<<<<<< HEAD
       // @TODO: create method e.g. resetState() to reset app state
 
+=======
+>>>>>>> bb22c3dc4cbf11da5c931e622059aeb708dd540c
       this.addMode = false;
     });
   }
