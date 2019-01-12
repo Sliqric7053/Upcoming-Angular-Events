@@ -15,6 +15,7 @@ import { JQ_TOKEN } from '../jquery.service';
 })
 export class SimpleModalComponent implements OnInit {
   @Input() title: string;
+  @Input() onBodyClick: string;
   @Input() elementId: string;
   @ViewChild('modalContainer') modalContainer: ElementRef;
 
@@ -23,6 +24,8 @@ export class SimpleModalComponent implements OnInit {
   ngOnInit() {}
 
   closeModal() {
-    this.$(this.modalContainer.nativeElement).modal('hide');
+    if (this.onBodyClick.toLocaleLowerCase() === 'true') {
+      this.$(this.modalContainer.nativeElement).modal('hide');
+    }
   }
 }

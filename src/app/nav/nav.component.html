@@ -66,7 +66,11 @@
   </div>
 </div>
 
-<app-simple-modal title="Matching Sessions" elementId="searchResults">
+<app-simple-modal
+  onBodyClick="true"
+  title="Matching Sessions"
+  elementId="searchResults"
+>
   <div class="list-group">
     <a
       *ngFor="let session of foundSessions"
