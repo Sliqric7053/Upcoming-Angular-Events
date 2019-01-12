@@ -22,9 +22,7 @@ export class EventDetailsComponent implements OnInit {
   ngOnInit() {
     // subscribe to component param changes and react accordingly
     this.route.params.forEach((param: Params) => {
-      this.event = this.eventService.getEvent(
-        +this.route.snapshot.params['id']
-      );
+      this.event = this.eventService.getEvent(+param['id']);
       // make sure you maintain app state
       // @TODO: create method e.g. resetState() to reset app state
 
