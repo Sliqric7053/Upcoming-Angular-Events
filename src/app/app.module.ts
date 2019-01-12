@@ -23,6 +23,7 @@ import {
   ToastrService,
   CollapsibleWellComponent,
   JQ_TOKEN,
+  ModalTriggerDirective,
   SimpleModalComponent,
 } from './common/index';
 import { DurationPipe } from './events/shared/duration.pipe';
@@ -43,6 +44,7 @@ const jQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
+    ModalTriggerDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [

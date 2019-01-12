@@ -6,7 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./simple-modal.component.scss'],
 })
 export class SimpleModalComponent implements OnInit {
-  @Input() title;
+  @Input() title: string;
+  @Input() elementId: string;
 
   constructor() {}
 
