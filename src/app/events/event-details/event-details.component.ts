@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { IEvent, ISession } from '../shared/event.model';
 
 @Component({
@@ -20,7 +20,15 @@ export class EventDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+    // subscribe to component param changes and react accordingly
+    this.route.params.forEach((param: Params) => {
+      this.event = this.eventService.getEvent(
+        +this.route.snapshot.params['id']
+      );
+      // make sure you maintain app state
+      // @TODO: create method e.g. resetState() to reset app state
+      this.addMode = false;
+    });
   }
 
   saveNewSession(session: ISession) {
