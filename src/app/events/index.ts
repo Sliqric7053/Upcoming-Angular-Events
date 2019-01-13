@@ -13,3 +13,5 @@ export * from './events-list-resolver.service';
 export * from './event-route-activator.guard';
 
 export * from './shared/event.model';
+
+export * from './create-event/location-validator.directive';
