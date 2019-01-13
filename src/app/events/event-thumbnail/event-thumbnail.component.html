@@ -9,11 +9,11 @@
   </div>
   <div>Price: {{ event?.price | currency: 'USD' }}</div>
   <div>
-    <span [hidden]="!event?.location.address"
+    <span [hidden]="!event?.location?.address"
       >Location: {{ event?.location?.address }}</span
     >
     <!-- <span>&nbsp;</span> -->
-    <span [hidden]="!event?.location.city" class="pad-left"
+    <span [hidden]="!event?.location?.city" class="pad-left"
       >{{ event?.location?.city }} {{ event?.location?.country }}</span
     >
   </div>
