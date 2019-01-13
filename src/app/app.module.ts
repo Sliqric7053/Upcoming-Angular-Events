@@ -9,9 +9,11 @@ import {
   CreateEventComponent,
   SessionListComponent,
   CreateSessionComponent,
+  UpvoteComponent,
   EventRouteActivatorGuard,
   EventsListResolverService,
   EventService,
+  VoterService,
 } from './events/index';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +47,7 @@ const jQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
+    UpvoteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
@@ -55,6 +58,7 @@ const jQuery = window['$'];
     { provide: JQ_TOKEN, useValue: jQuery },
     EventsListResolverService,
     AuthService,
+    VoterService,
   ],
   bootstrap: [AppComponent],
 })
