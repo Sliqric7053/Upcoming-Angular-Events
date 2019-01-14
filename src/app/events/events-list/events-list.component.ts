@@ -19,6 +19,8 @@ export class EventsListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this was fetched in the events-list-resolver.service
+    // ['events'] is the given name for this resolver in the AppRoutingModule
     this.events = this.route.snapshot.data['events'];
   }
 
