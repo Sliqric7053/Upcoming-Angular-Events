@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.config.json",
+    "start:dev": "concurrently --kill-others \"npm run server\" \"npm run start\"",
     "server": "node node_modules/ngf-server/server.js",
     "build": "ng build",
     "test": "ng test",
@@ -21,6 +22,7 @@
     "@angular/platform-browser": "6.0.3",
     "@angular/platform-browser-dynamic": "6.0.3",
     "@angular/router": "6.0.3",
+    "concurrently": "^4.1.0",
     "core-js": "2.5.4",
     "ngf-bootstrap": "0.0.5",
     "ngf-server": "^1.0.2",
