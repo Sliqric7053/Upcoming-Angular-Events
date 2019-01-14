@@ -9,8 +9,7 @@ export * from './upvote/upvote.component';
 export * from './shared/event.service';
 export * from './event-details/voter.service';
 export * from './events-list-resolver.service';
-
-export * from './event-route-activator.guard';
+export * from './event-resolver.service';
 
 export * from './shared/event.model';
 

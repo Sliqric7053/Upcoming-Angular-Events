@@ -5,9 +5,9 @@ import { EventsListComponent } from './events/events-list/events-list.component'
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { ErrorsComponent } from './errors/errors.component';
-import { EventRouteActivatorGuard } from './events/event-route-activator.guard';
 import { EventsListResolverService } from './events/events-list-resolver.service';
 import { CreateSessionComponent } from './events';
+import { EventResolverService } from './events/event-resolver.service';
 
 const routes: Routes = [
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'events/:id',
     component: EventDetailsComponent,
-    canActivate: [EventRouteActivatorGuard],
+    resolve: { event: EventResolverService },
   },
   {
     path: 'events/session/new',
