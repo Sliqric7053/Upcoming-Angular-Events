@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { IEvent, ISession } from './event.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { handleError } from './http.util';
 
 @Injectable()
 export class EventService {
@@ -11,19 +12,19 @@ export class EventService {
   getEvents(): Observable<IEvent[]> {
     return this.http
       .get<IEvent[]>('/api/events')
-      .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
+      .pipe(catchError(handleError<IEvent[]>('getEvents', [])));
   }
 
   getEvent(id: number): Observable<IEvent> {
     return this.http
       .get<IEvent>(`/api/events/${id}`)
-      .pipe(catchError(this.handleError<IEvent>('getEvent')));
+      .pipe(catchError(handleError<IEvent>('getEvent')));
   }
 
   searchSessions(searchTerm: Observable<ISession[]>) {
     return this.http
       .get<ISession[]>(`/api/sessions/search?search=${searchTerm}`)
-      .pipe(catchError(this.handleError<ISession[]>('getEvent')));
+      .pipe(catchError(handleError<ISession[]>('getEvent')));
   }
 
   saveEvent(event: IEvent) {
@@ -32,13 +33,6 @@ export class EventService {
     };
     return this.http
       .post<IEvent>(`/api/events/`, event, options)
-      .pipe(catchError(this.handleError<IEvent>('saveEvent')));
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    };
+      .pipe(catchError(handleError<IEvent>('saveEvent')));
   }
 }

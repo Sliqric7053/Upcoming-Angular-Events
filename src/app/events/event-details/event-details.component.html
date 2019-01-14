@@ -79,6 +79,7 @@
     <div class="col-md-2"><a (click)="addSession()">Add Session</a></div>
   </div>
   <app-session-list
+    [eventId]="event.id"
     [sortBy]="sortBy"
     [sessions]="event?.sessions"
     *ngIf="!addMode"
