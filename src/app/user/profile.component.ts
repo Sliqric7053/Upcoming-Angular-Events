@@ -48,6 +48,12 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
+  logout() {
+    this.auth.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    });
+  }
+
   validateFirstName() {
     return (
       this.profileForm.controls.firstName.valid ||
