@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../user/auth.service';
-import { ISession, EventService } from '../events';
+import { ISession, EventService, IEvent } from '../events';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -11,10 +12,19 @@ import { Observable } from 'rxjs';
 export class NavComponent implements OnInit {
   searchTerm = '';
   foundSessions: ISession[];
+  events: IEvent[];
 
-  constructor(private auth: AuthService, private eventService: EventService) {}
+  constructor(
+    private auth: AuthService,
+    private eventService: EventService,
+    public route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.eventService.getEvents().subscribe(events => {
+      this.events = events;
+    });
+  }
 
   searchSessions(searchTerm: Observable<ISession[]>) {
     this.eventService.searchSessions(searchTerm).subscribe(sessions => {

@@ -7,7 +7,7 @@ import { IEvent } from './shared/event.model';
 @Injectable()
 export class EventsListResolverService implements Resolve<any> {
   constructor(private eventService: EventService) {}
-
+  // resolver auto-subscribes
   resolve(): Observable<IEvent[]> {
     return this.eventService.getEvents();
   }
