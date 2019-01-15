@@ -40,9 +40,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   saveProfile(formValues) {
-    this.auth.updateCurrentUser(formValues.firstName, formValues.lastName);
-    this.toastr.success('Profile saved');
-    // this.router.navigate(['/events']);
+    this.auth
+      .updateCurrentUser(formValues.firstName, formValues.lastName)
+      .subscribe(() => {
+        this.toastr.success('Profile saved');
+        // this.router.navigate(['/events']);
+      });
   }
 
   validateFirstName() {
