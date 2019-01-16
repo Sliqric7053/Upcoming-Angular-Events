@@ -50,7 +50,7 @@ describe('VoterService', () => {
     });
   });
 
-  fdescribe('AddVoter:', () => {
+  describe('AddVoter:', () => {
     it('should add the voter to the list of voters', () => {
       const session = { id: 6, voters: ['john'] };
       mockHttp.post.and.returnValue(of(false));
