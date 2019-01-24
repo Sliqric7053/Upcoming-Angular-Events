@@ -1,6 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EventThumbnailComponent } from './event-thumbnail.component';
+import { Directive, Input } from '@angular/core';
+
+@Directive({
+  // tslint:disable-next-line:directive-selector
+  selector: '[routerLink]',
+  // tslint:disable-next-line:use-host-property-decorator
+  host: { '(click)': 'onClick()' },
+})
+// tslint:disable-next-line:directive-class-suffix
+export class RouterLinkDirectiveStub {
+  // tslint:disable-next-line:no-input-rename
+  @Input('routerLink') linkParams: any;
+  navigatedTo: any = null;
+
+  onClick() {
+    this.navigatedTo = this.linkParams;
+  }
+}
 
 describe('EventThumbnailComponent', () => {
   let component: EventThumbnailComponent;
@@ -8,9 +26,9 @@ describe('EventThumbnailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventThumbnailComponent ]
-    })
-    .compileComponents();
+      imports: [],
+      declarations: [EventThumbnailComponent, RouterLinkDirectiveStub],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
